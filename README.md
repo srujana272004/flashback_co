@@ -10,8 +10,6 @@
 * [Project Structure](#project-structure)
 * [Customization](#customization)
 * [Contributing](#contributing)
-* [License](#license)
-* [Acknowledgements](#acknowledgements)
 
 ---
 
