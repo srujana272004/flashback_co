@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🌈 Flashback Co. - Vintage Photobooth Experience</title>
+    <meta name="description" content="Step into the nostalgic world of vintage photobooths with Flashback Co. - a modern web app with authentic retro vibes">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Special+Elite&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Amatic+SC:wght@400;700&display=swap');
+      
+      * {
+        font-family: 'Crimson Text', 'Playfair Display', Georgia, serif;
+      }
+      
+      body {
+        margin: 0;
+        padding: 0;
+        background: 
+          radial-gradient(circle at 20% 30%, rgba(139, 115, 85, 0.08) 0%, transparent 40%),
+          radial-gradient(circle at 80% 70%, rgba(160, 130, 95, 0.06) 0%, transparent 50%),
+          radial-gradient(circle at 40% 80%, rgba(120, 100, 75, 0.05) 0%, transparent 45%),
+          linear-gradient(135deg, #f8f5f0 0%, #f0e8d8 30%, #e8dcc0 70%, #dcc8a8 100%);
+        min-height: 100vh;
+        overflow-x: hidden;
+        color: #3a3a3a;
+        position: relative;
+      }
+      
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: rgba(139, 115, 85, 0.1);
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background: rgba(139, 115, 85, 0.3);
+        border-radius: 4px;
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(139, 115, 85, 0.5);
+      }
+
+      /* Enhanced vintage paper texture with imperfections */
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+          radial-gradient(circle at 15% 25%, rgba(139, 115, 85, 0.12) 0%, transparent 30%),
+          radial-gradient(circle at 85% 15%, rgba(160, 130, 95, 0.08) 0%, transparent 35%),
+          radial-gradient(circle at 45% 85%, rgba(120, 100, 75, 0.06) 0%, transparent 40%),
+          radial-gradient(circle at 70% 60%, rgba(180, 150, 120, 0.04) 0%, transparent 25%);
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.7;
+      }
+
+      /* Paper grain texture overlay */
+      body::after {
+        content: '';
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      /* Enhanced retro font classes */
+      .font-retro-display {
+        font-family: 'Playfair Display', 'Crimson Text', serif;
+      }
+      
+      .font-retro-script {
+        font-family: 'Amatic SC', 'Special Elite', cursive;
+      }
+      
+      .font-typewriter {
+        font-family: 'Special Elite', 'Courier Prime', 'Courier New', monospace;
+      }
+      
+      .font-handwritten {
+        font-family: 'Amatic SC', cursive;
+      }
+      
+      /* Vintage button styling */
+      .vintage-button {
+        position: relative;
+        background: linear-gradient(145deg, #d4c4a0, #b8a082);
+        border: 2px solid rgba(139, 115, 85, 0.4);
+        box-shadow: 
+          inset 0 1px 0 rgba(255, 255, 255, 0.2),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.1),
+          0 4px 8px rgba(139, 115, 85, 0.3);
+        transition: all 0.2s ease;
+      }
+      
+      .vintage-button:hover {
+        background: linear-gradient(145deg, #e0d0b0, #c4b492);
+        box-shadow: 
+          inset 0 1px 0 rgba(255, 255, 255, 0.3),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.15),
+          0 6px 12px rgba(139, 115, 85, 0.4);
+        transform: translateY(-1px);
+      }
+      
+      .vintage-button:active {
+        transform: translateY(1px);
+        box-shadow: 
+          inset 0 1px 0 rgba(255, 255, 255, 0.1),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+          0 2px 4px rgba(139, 115, 85, 0.2);
+      }
+      
+      /* Vintage card styling */
+      .vintage-card {
+        background: 
+          linear-gradient(145deg, rgba(248, 245, 240, 0.95), rgba(240, 232, 216, 0.9));
+        border: 2px solid rgba(139, 115, 85, 0.3);
+        box-shadow: 
+          0 8px 16px rgba(139, 115, 85, 0.2),
+          inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        position: relative;
+      }
+      
+      .vintage-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperTexture'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='5' result='noise' seed='1'/%3E%3CfeColorMatrix in='noise' type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperTexture)' opacity='0.03'/%3E%3C/svg%3E");
+        border-radius: inherit;
+        pointer-events: none;
+      }
+      
+      /* Vintage corner decorations */
+      .vintage-corners::before,
+      .vintage-corners::after {
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border: 2px solid rgba(139, 115, 85, 0.4);
+      }
+      
+      .vintage-corners::before {
+        top: 8px;
+        left: 8px;
+        border-right: none;
+        border-bottom: none;
+      }
+      
+      .vintage-corners::after {
+        bottom: 8px;
+        right: 8px;
+        border-left: none;
+        border-top: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
