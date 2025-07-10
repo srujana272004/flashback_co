@@ -70,7 +70,7 @@ const CameraFeed: React.FC<CameraFeedProps> = ({ onCameraReady, onError, videoRe
 
   if (error) {
     return (
-      <div className="relative w-full h-full min-h-[200px] sm:min-h-[250px] md:min-h-[300px]">
+      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100 flex items-center justify-center p-4 relative">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 25% 25%, rgba(139, 115, 85, 0.1) 0%, transparent 50%),
@@ -110,10 +110,10 @@ const CameraFeed: React.FC<CameraFeedProps> = ({ onCameraReady, onError, videoRe
         style={{ transform: 'scaleX(-1)' }}
       />
       {isLoading && (
-        <div className="absolute inset-0 bg-amber-900/50 flex items-center justify-center rounded-lg min-h-[200px] sm:min-h-[250px] md:min-h-[300px]">
-          <div className="flex flex-col items-center">
-            <Camera className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-amber-100 animate-pulse mx-auto mb-2 sm:mb-4" />
-            <p className="text-amber-100 text-sm sm:text-base md:text-lg font-serif">Starting camera...</p>
+        <div className="absolute inset-0 bg-amber-900/50 flex items-center justify-center rounded-lg">
+          <div className="text-center">
+            <Camera className="w-12 h-12 text-amber-100 animate-pulse mx-auto mb-4" />
+            <p className="text-amber-100 text-lg font-serif">Starting camera...</p>
           </div>
         </div>
       )}
