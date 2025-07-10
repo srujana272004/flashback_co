@@ -206,7 +206,7 @@ const PhotoBooth: React.FC<PhotoBoothProps> = ({ template, onBack, onComplete })
     setPhotos([]);
     setCurrentSlot(0);
     setCompositeImage(null);
-    setState('camera-setup');
+    setState('preview');
     setIsLoadingCamera(true);
     setCameraError(null);
   };
