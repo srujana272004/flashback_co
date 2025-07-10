@@ -45,20 +45,20 @@ const DevelopingEffect: React.FC<DevelopingEffectProps> = ({
       <div className="text-center relative z-20 px-2 sm:px-4 w-full max-w-xs sm:max-w-md mx-auto">
         {/* Developing Photo */}
         <div className="relative mb-4 sm:mb-6 md:mb-8">
-          <div className="w-full max-w-72 sm:max-w-80 md:max-w-96 bg-black border-4 border-gray-800 rounded-lg overflow-hidden shadow-2xl mx-auto" style={{
+          <div className="w-full max-w-72 sm:max-w-80 h-60 sm:h-72 md:h-96 bg-black border-4 border-gray-800 rounded-lg overflow-hidden shadow-2xl mx-auto" style={{
             boxShadow: '0 0 30px rgba(139, 0, 0, 0.3), inset 0 0 20px rgba(0, 0, 0, 0.8)'
           }}>
             {/* Developer Tray */}
-            <div className="absolute inset-4 bg-gray-900 rounded-md border border-gray-700 shadow-inner flex items-center justify-center" style={{
+            <div className="absolute inset-4 bg-gray-900 rounded-md border border-gray-700 shadow-inner" style={{
               background: 'linear-gradient(145deg, #1a1a1a, #0d0d0d)',
               boxShadow: 'inset 0 2px 4px rgba(0, 0, 0, 0.5)'
             }}>
               {/* Photo in Developer */}
-              <div className="w-full h-full max-w-full max-h-full bg-white rounded-sm overflow-hidden border border-gray-600 flex items-center justify-center p-2">
+              <div className="absolute inset-2 bg-white rounded-sm overflow-hidden border border-gray-600">
                 <img 
                   src={photoUrl} 
                   alt="Developing photo" 
-                  className="max-w-full max-h-full object-contain transition-all duration-100 rounded-sm"
+                  className="w-full h-full object-cover transition-all duration-100 rounded-sm"
                   style={{
                     filter: `
                       brightness(${0.3 + (developProgress / 100) * 0.7})
@@ -71,13 +71,13 @@ const DevelopingEffect: React.FC<DevelopingEffectProps> = ({
                 
                 {/* Developing Overlay */}
                 <div 
-                  className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/50 transition-opacity duration-100 pointer-events-none"
+                  className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/50 transition-opacity duration-100"
                   style={{ opacity: 1 - (developProgress / 100) }}
                 ></div>
               </div>
               
               {/* Enhanced chemical ripples */}
-              <div className="absolute inset-2 pointer-events-none">
+              <div className="absolute inset-0 pointer-events-none">
                 {[...Array(8)].map((_, i) => (
                   <div
                     key={i}
